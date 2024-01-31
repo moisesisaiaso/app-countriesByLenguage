@@ -19,7 +19,9 @@ body {
     row-gap: 2rem;
     padding: 2.5rem;
     margin: 15px auto;
+    min-height: 100vh;
     height: 100%;
+    overflow-x: hidden;
 }
 
 .title {
@@ -90,4 +92,17 @@ img {
 h3,
 h2 {
     text-align: center;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-size: 0.7rem;
+    height: 100%;
+}
+
+footer p {
+    position: relative;
+    bottom: -1.5rem;
 }

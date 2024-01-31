@@ -47,6 +47,9 @@ function App() {
                         )}
                     </>
                 )}
+                <footer>
+                    <p>&copy; DESARROLLADO POR MOISES ORTIZ GRACIA</p>
+                </footer>
             </section>
         </>
     );
