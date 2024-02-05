@@ -1,13 +1,12 @@
 import { useRef } from "react";
 
-export const SearchByCountry = ({ setSearch }) => {
+export const SearchByCountry = ({ setLanguaje }) => {
     const textInpunt = useRef();
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const handleSubmit = () => {
         const inputValue = textInpunt.current.value;
         const lenguage = inputValue.trim();
-        setSearch(lenguage.toLowerCase());
+        setLanguaje(lenguage.toLowerCase());
     };
     return (
         <>

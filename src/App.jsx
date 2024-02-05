@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { useGetCountries } from "./hooks/useGetCountries";
-import { SearchByCountry } from "./components/SearchByCountry";
+import { SearchByCountry } from "./components/SearchByLanguage";
 import { CountryCard } from "./components/CountryCard";
 
 function App() {
     const [countries, setCountries] = useGetCountries();
-    const [search, setSearch] = useState("spanish");
+    const [language, setLanguaje] = useState("spanish");
 
     const [isloading, setIsLoading] = useState(true);
     const [exist, setExist] = useState(true);
 
     const accessHandler = async () => {
-        const access = await setCountries(search);
+        const access = await setCountries(language);
         const { isloading, exist } = access;
         setIsLoading(isloading);
         setExist(exist);
@@ -21,9 +21,10 @@ function App() {
 
     useEffect(() => {
         accessHandler();
-    }, [search]);
+    }, [language]);
 
     console.log(countries);
+    console.log("cargando? ", isloading);
 
     return (
         <>
@@ -34,7 +35,7 @@ function App() {
                     <>
                         <header className="headerPrincipal">
                             <h1 className="title">API DE PAÍSES</h1>
-                            <SearchByCountry setSearch={setSearch} />
+                            <SearchByCountry setLanguaje={setLanguaje} />
                         </header>
                         {exist ? (
                             <main>
@@ -43,7 +44,7 @@ function App() {
                                 ))}
                             </main>
                         ) : (
-                            <h3>"{search}" No es un lenguaje existente</h3>
+                            <h3>"{language}" No es un lenguaje existente</h3>
                         )}
                     </>
                 )}
